@@ -52,7 +52,7 @@ function isPrivateMode2() {
 	let isPrivate = false;
 	try {
 		window.openDatabase(null, null, null, null);
-	} catch () {
+	} catch (_) {
 		return true;
 	}
 	return false;
