@@ -1,5 +1,6 @@
-Hellow world
-
+Hello world<br>
+<div id="result"></div>
+<script src="jherax.js"></script>
 <script>
-document.title = 'Works';
+incognito().then((detected) => { document.getElementById("result").innerText = 'Incognito: ' + detected});
 </script>
