@@ -47,3 +47,13 @@ function isPrivateMode() {
     return off();
   });
 }
+
+function isPrivateMode2() {
+	let isPrivate = false;
+	try {
+		window.openDatabase(null, null, null, null);
+	} catch () {
+		return true;
+	}
+	return false;
+}
