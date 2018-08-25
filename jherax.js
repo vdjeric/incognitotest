@@ -49,11 +49,13 @@ function isPrivateMode() {
 }
 
 function isPrivateMode2() {
-	let isPrivate = false;
 	try {
 		window.openDatabase(null, null, null, null);
-	} catch (_) {
-		return true;
+	} catch (e) {
+		// QuotaExceededError happens in non-incognito mode as well
+		if (e.name === 'SecurityError') {
+			return true;
+		}
 	}
 	return false;
 }
