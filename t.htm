@@ -1,5 +1,5 @@
 <div id="out"></div>
 <script>
 out = document.getElementById("out");
-out.innerText = JSON.stringify(window.performance.memory);
+out.innerText = window.performance.memory.usedJSHeapSize;
 </script>
