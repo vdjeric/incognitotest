@@ -50,11 +50,14 @@ function isPrivateMode() {
 
 function isPrivateMode2() {
 	try {
-		window.openDatabase(null, null, null, null);
+		window.openDatabase("sid", "1.0", "", 0);
 	} catch (e) {
 		// QuotaExceededError happens in non-incognito mode as well
 		if (e.name === 'SecurityError') {
+			console.log('SecurityError');
 			return true;
+		} else {
+			console.log('Exception: ' + e.name);
 		}
 	}
 	return false;
