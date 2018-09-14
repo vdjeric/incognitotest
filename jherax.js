@@ -49,16 +49,20 @@ function isPrivateMode() {
 }
 
 function isPrivateMode2() {
+	let incognito = false;
+	let start = performance.now();
 	try {
 		window.openDatabase("sid", "1.0", "", 0);
 	} catch (e) {
+		document.title = 'catch: ' + (performance.now() - start);
 		// QuotaExceededError happens in non-incognito mode as well
 		if (e.name === 'SecurityError') {
 			console.log('SecurityError');
-			return true;
+			incognito = true;
 		} else {
 			console.log('Exception: ' + e.name);
+			incognito = false;
 		}
 	}
-	return false;
+	return { incognito: incognito, overhead: (performance.now() - start) };
 }

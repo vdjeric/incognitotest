@@ -2,5 +2,6 @@ Hello world<br>
 <div id="result"></div>
 <script src="jherax.js"></script>
 <script>
-document.getElementById("result").innerText = 'Incognito2: ' + isPrivateMode2();
+let result = isPrivateMode2();
+document.getElementById("result").innerText = 'Incognito2: ' + result.incognito + '\n' + 'Overhead: ' + result.overhead;
 </script>
